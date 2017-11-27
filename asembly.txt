@@ -1,0 +1,182 @@
+.586
+.MODEL FLAT
+.STACK 4096
+INCLUDE io.h
+.DATA
+show BYTE "the",0
+num DWORD ?
+list dword 10,20,30,40,50
+
+.CODE
+_MainProc PROC
+
+mov eax,0
+mov eax,list
+dtoa num,eax
+output show ,num
+mov eax,0;
+ret
+_MainProc ENDP
+END
+///////////////////////////////////////////////////
+(1)
+.586
+.MODEL FLAT
+.STACK 4096
+INCLUDE io.h
+.DATA
+x BYTE "entre the value of x",0
+y BYTE "entre the value of y",0
+z BYTE "entre the value of z",0
+result BYTE "the result is",0
+num1 Dword ?
+temp1 Dword ?
+sum Dword ?
+num2 Dword ?
+num3 Dword ?
+num DWORD ?
+.CODE
+_MainProc PROC
+input x,num1,40
+atod num1
+mov temp1,eax
+input y,num2,40
+atod num2
+add eax,temp1
+mov sum,eax
+input z,num3,40
+atod num3
+imul eax,2
+sub sum,eax
+mov eax,sum
+inc eax
+
+neg eax
+
+dtoa num,eax
+output result,num
+mov eax,0;
+ret
+_MainProc ENDP
+END
+////////////////////////////////////////
+(3)
+.586
+.MODEL FLAT
+.STACK 4096
+INCLUDE io.h
+.DATA
+widthe BYTE "entre the width of rectangle",0
+lengthe BYTE "entre the length of rectangle",0
+
+result BYTE "the result is",0
+num1 Dword ?
+num2 Dword ?
+temp1 Dword ?
+sum Dword ?
+num DWORD ?
+.CODE
+_MainProc PROC
+input widthe,num1,40
+atod num1
+imul eax,2
+mov temp1,eax
+input lengthe,num2,40
+atod num2
+imul eax,2
+add eax,temp1
+dtoa num,eax
+output result,num
+mov eax,0;
+ret
+_MainProc ENDP
+END
+//////////////////////////////////////////////////
+(2)
+.586
+.MODEL FLAT
+.STACK 4096
+INCLUDE io.h
+.DATA
+x BYTE "entre the value of x",0
+y BYTE "entre the value of y",0
+z BYTE "entre the value of z",0
+result BYTE "the result is",0
+num1 Dword ?
+temp1 Dword ?
+sum Dword ?
+num2 Dword ?
+num3 Dword ?
+num DWORD ?
+.CODE
+_MainProc PROC
+input x,num1,40
+atod num1
+mov temp1,eax
+input y,num2,40
+atod num2
+add eax,temp1
+imul eax,2
+mov num,eax
+input z,num3,40
+atod num3
+add eax,num
+
+dtoa num,eax
+output result,num
+mov eax,0;
+ret
+_MainProc ENDP
+END
+////////////////////////////////////////
+(5)
+.586
+.MODEL FLAT
+.STACK 4096
+INCLUDE io.h
+.DATA
+grade1 BYTE "entre the value of grade1",0
+grade2 BYTE "entre the value of grade2",0
+grade3 BYTE "entre the value of grade3",0
+grade4 BYTE "entre the value of grade4",0
+sumres BYTE "the sum is",0
+avgres BYTE"the avarage is",0
+num1 Dword ?
+
+num2 Dword ?
+num3 Dword ?
+num4 Dword ?
+sum Dword ?
+avg Dword ?
+temp1 Dword ?
+num DWORD ?
+.CODE
+_MainProc PROC
+input grade1,num1,40
+atod num1
+mov sum,eax
+input grade2,num2,40
+atod num2
+add eax,sum
+mov sum,eax
+input grade3,num3,40
+atod num3
+add sum,eax
+input grade4,num4,40
+atod num4
+add sum,eax
+mov eax,sum
+dtoa num,eax
+output sumres,num
+mov ebx,4
+div ebx
+dtoa avg,eax
+
+output avgres,avg
+
+
+
+mov eax,0;
+ret
+_MainProc ENDP
+END
